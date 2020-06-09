@@ -13,10 +13,10 @@
 from easydict import EasyDict
 
 Cfg = EasyDict()
-Cfg.batch = 64
-Cfg.subdivisions = 16
-Cfg.width = 608
-Cfg.height = 608
+Cfg.batch = 4
+Cfg.subdivisions = 1
+Cfg.width = 1024
+Cfg.height = 1024
 Cfg.channels = 3
 Cfg.momentum = 0.949
 Cfg.decay = 0.0005
