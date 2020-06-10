@@ -266,7 +266,7 @@ class Yolo_dataset(Dataset):
     def __getitem__(self, index):
         img_path = list(self.truth.keys())[index]
         self.truth.get(img_path)
-        img_path = [i for i in img_path if i!= [] ]
+        img_path = [i for i in img_path if i!= [] ]   # remove empty lists 
         bboxes = np.array(self.truth.get(img_path), dtype=np.float)      # ValueError: setting an array element with a sequence.
         img_path = os.path.join(self.cfg.dataset_dir, img_path)
         use_mixup = self.cfg.mixup
