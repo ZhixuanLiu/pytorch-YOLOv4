@@ -299,6 +299,10 @@ def train(model, device, config, epochs=5, batch_size=1, save_cp=True, log_step=
     criterion = Yolo_loss(device=device, batch=config.batch // config.subdivisions,n_classes=config.classes)
     # scheduler = ReduceLROnPlateau(optimizer, mode='max', verbose=True, patience=6, min_lr=1e-7)
     # scheduler = CosineAnnealingWarmRestarts(optimizer, 0.001, 1e-6, 20)
+    
+    
+    # check dataset problem 
+    print (train_dataset[0]) 
 
     model.train()
     for epoch in range(epochs):
@@ -307,7 +311,7 @@ def train(model, device, config, epochs=5, batch_size=1, save_cp=True, log_step=
         epoch_step = 0
 
         with tqdm(total=n_train, desc=f'Epoch {epoch + 1}/{epochs}', unit='img', ncols=50) as pbar:
-            for i, batch in enumerate(train_loader):
+            for i, batch in enumerate(train_loader):   # 1st bug happend here : ValueError: Caught ValueError in DataLoader worker process 0
                 global_step += 1
                 epoch_step += 1
                 images = batch[0]
