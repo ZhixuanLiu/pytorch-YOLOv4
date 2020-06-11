@@ -431,6 +431,9 @@ if __name__ == "__main__":
     os.environ["CUDA_VISIBLE_DEVICES"] = cfg.gpu
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
     logging.info(f'Using device {device}')
+    
+    # add the file destiniation 
+    Cfg.dataset_dir = '../input/global-wheat-detection/train/' 
 
     model = Yolov4(cfg.pretrained,n_classes=cfg.classes)
 
