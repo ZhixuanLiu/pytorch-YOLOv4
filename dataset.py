@@ -390,6 +390,9 @@ if __name__ == "__main__":
     np.random.seed(2020)
     Cfg.dataset_dir = '/mnt/e/Dataset'
     dataset = Yolo_dataset(Cfg.train_label, Cfg)
+    print (cfg.train_label)
+    print (Cfg)
+    print( dataset[0] )
     for i in range(100):
         out_img, out_bboxes = dataset.__getitem__(i)
         a = draw_box(out_img.copy(), out_bboxes.astype(np.int32))
