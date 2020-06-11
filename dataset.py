@@ -265,7 +265,6 @@ class Yolo_dataset(Dataset):
 
     def __getitem__(self, index):
         img_path = list(self.truth.keys())[index]
-        self.truth.get(img_path)
         bboxes = np.array([i for i in self.truth.get(img_path) if i!=[]], dtype=np.float)      # ValueError: setting an array element with a sequence.
         img_path = os.path.join(self.cfg.dataset_dir, img_path)
         use_mixup = self.cfg.mixup
@@ -388,7 +387,7 @@ if __name__ == "__main__":
 
     random.seed(2020)
     np.random.seed(2020)
-    Cfg.dataset_dir = '/mnt/e/Dataset'
+    Cfg.dataset_dir = '../input/global-wheat-detection/train/'    # '/mnt/e/Dataset'
     dataset = Yolo_dataset(Cfg.train_label, Cfg)
     print (Cfg.train_label)
     print (Cfg)
