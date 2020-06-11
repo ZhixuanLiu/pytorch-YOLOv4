@@ -433,7 +433,7 @@ if __name__ == "__main__":
     logging.info(f'Using device {device}')
     
     # add the file destiniation 
-    Cfg.dataset_dir = '../input/global-wheat-detection/train/' 
+    cfg.dataset_dir = '../input/global-wheat-detection/train/' 
 
     model = Yolov4(cfg.pretrained,n_classes=cfg.classes)
 
