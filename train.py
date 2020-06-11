@@ -300,9 +300,6 @@ def train(model, device, config, epochs=5, batch_size=1, save_cp=True, log_step=
     # scheduler = ReduceLROnPlateau(optimizer, mode='max', verbose=True, patience=6, min_lr=1e-7)
     # scheduler = CosineAnnealingWarmRestarts(optimizer, 0.001, 1e-6, 20)
     
-    
-    # check dataset problem 
-    print (train_dataset[0]) 
 
     model.train()
     for epoch in range(epochs):
