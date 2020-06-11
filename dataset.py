@@ -390,6 +390,7 @@ if __name__ == "__main__":
     Cfg.dataset_dir = '../input/global-wheat-detection/train/'    # '/mnt/e/Dataset'
     dataset = Yolo_dataset(Cfg.train_label, Cfg)
     for i in range(10):
+        print (dataset[i])
         out_img, out_bboxes = dataset.__getitem__(i)
         a = draw_box(out_img.copy(), out_bboxes.astype(np.int32))
         plt.imshow(a.astype(np.int32))
